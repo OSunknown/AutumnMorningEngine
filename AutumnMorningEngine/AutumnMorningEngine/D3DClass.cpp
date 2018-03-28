@@ -177,27 +177,8 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight,
 	//Set the feature level to DirectX 11
 	featureLevel = D3D_FEATURE_LEVEL_11_0;
 
-	//Create the Swap chain, Direct3D device, and Direct3D device context
-	result = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, 0, &featureLevel, 1,
-		D3D11_SDK_VERSION, &swapChainDesc, &m_swapChain, &m_device, NULL, &m_deviceContext);
-	if (FAILED(result))
-	{
-		return false;
-	}
 
-	//Get the pointer to the back buffer.
-	result = m_swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&backBufferPtr);
-	if (FAILED(result))
-	{
-		return false;
-	}
-	
-	//Create the render target view with the back buffer pointer.
-	result = m_device->CreateRenderTargetView(backBufferPtr, NULL, &m_renderTargetView);
-	if (FAILED(result))
-	{
-		return false;
-	}
+
 
 	return true;
 }
