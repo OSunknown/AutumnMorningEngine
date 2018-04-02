@@ -9,8 +9,8 @@
 // INCLUDES //
 //////////////
 #include <Windows.h>
-#include "GraphicsClass.h";
-#include "InputClass.h";
+#include "GraphicsClass.h"
+#include "InputClass.h"
 
 class SystemClass
 {

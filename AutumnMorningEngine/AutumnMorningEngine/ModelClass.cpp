@@ -128,7 +128,7 @@ bool ModelClass::InitializeBuffers(ID3D11Device * device)
 	indexData.SysMemSlicePitch = 0;
 
 	//Create the index buffer
-	result = device->CreateBuffer(&indexBufferDesc, &indexData, &m_indexCount);
+	result = device->CreateBuffer(&indexBufferDesc, &indexData, &m_indexBuffer);
 	if (FAILED(result))
 	{
 		return false;
@@ -155,7 +155,7 @@ void ModelClass::ShutdownBuffers()
 	//Release the vertex buffer
 	if (m_vertexBuffer)
 	{
-		m_vertexBuffer->Release;
+		m_vertexBuffer->Release();
 		m_vertexBuffer = 0;
 	}
 

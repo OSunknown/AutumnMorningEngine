@@ -2,7 +2,6 @@
 #include<D3D11.h>
 #include<D3DX10math.h>
 #pragma comment(lib,"D3D11.lib")
-#pragma comment(lib,"D3DX10math.lib")
 class ModelClass
 {
 private:
