@@ -56,7 +56,7 @@ bool SystemClass::Initialize()
 	int screenWidth, screenHeight;
 	bool result;
 
-	m_applicationName	= "AutumnMorning Engine";
+	m_applicationName	= L"AutumnMorning Engine";
 	m_hInstance = GetModuleHandle(NULL);
 	ApplicationHandle = this;
 	InitializeWindows(screenWidth, screenHeight);

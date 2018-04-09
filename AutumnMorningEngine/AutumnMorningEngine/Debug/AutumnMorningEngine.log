@@ -1,4 +1,4 @@
-﻿  ColorShaderClass.cpp
+﻿  TextureShaderClass.cpp
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED': 매크로 재정의
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\winerror.h(53655): note: 'DXGI_STATUS_OCCLUDED'의 이전 정의를 참조하십시오.
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED': 매크로 재정의
@@ -55,5 +55,4 @@ c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): w
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\winerror.h(54094): note: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'의 이전 정의를 참조하십시오.
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': 매크로 재정의
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\winerror.h(54103): note: 'D3D10_ERROR_FILE_NOT_FOUND'의 이전 정의를 참조하십시오.
-c:\users\khw\documents\github\autumnmorningengine\autumnmorningengine\autumnmorningengine\colorshaderclass.cpp(65): warning C4101: 'matrixBufferDesc' :참조되지 않은 지역 변수입니다.
-  AutumnMorningEngine.vcxproj -> C:\Users\khw\Documents\GitHub\AutumnMorningEngine\AutumnMorningEngine\Debug\AutumnMorningEngine.exe
+  AutumnMorningEngine.vcxproj -> D:\PPProject\DirectXEngine\AutumnMorningEngine\AutumnMorningEngine\Debug\AutumnMorningEngine.exe

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "SystemClass.h"
 
+
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
 	SystemClass* System;
@@ -11,7 +12,11 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline,
 	{
 		return 0;
 	}
-
+	if (AllocConsole())
+	{
+		freopen("CONOUT$", "w", stdout);
+	}
+	
 	result = System->Initialize();
 	if (result)
 	{

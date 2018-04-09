@@ -32,7 +32,7 @@ private:
 
 private:
 
-	LPCSTR m_applicationName;
+	LPCWSTR m_applicationName;
 	HINSTANCE  m_hInstance;
 	HWND m_hWnd;
 	InputClass* m_Input;
