@@ -127,7 +127,7 @@
     <ClCompile Include="SystemClass.cpp" />
     <ClCompile Include="TextureClass.cpp" />
     <ClCompile Include="TextureShaderClass.cpp" />
-    <ClCompile Include="WinUtil.cpp" />
+    <ClCompile Include="Debug.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraClass.h" />
@@ -140,11 +140,12 @@
     <ClInclude Include="SystemClass.h" />
     <ClInclude Include="TextureClass.h" />
     <ClInclude Include="TextureShaderClass.h" />
-    <ClInclude Include="WinUtil.h" />
+    <ClInclude Include="Debug.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Color.ps" />
     <None Include="Color.vs" />
+    <None Include="Light.vs" />
     <None Include="Texture.ps" />
     <None Include="Texture.vs" />
   </ItemGroup>

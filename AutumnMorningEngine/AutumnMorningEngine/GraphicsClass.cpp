@@ -1,5 +1,5 @@
 #include "GraphicsClass.h"
-
+#include "Debug.h"
 
 
 GraphicsClass::GraphicsClass()
@@ -52,7 +52,8 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hWnd)
 	{
 		return false;
 	}
-	printf("Model Initialize ");
+	
+	Debug::Log("aaaaa");
 	//Initialize the model object;
 	//result = m_Model->Initialize(m_D3D->GetDevice());
 	result = m_Model->Initialize(m_D3D->GetDevice(), L"../AutumnMorningEngine/data/seafloor.dds");

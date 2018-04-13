@@ -11,4 +11,4 @@
 // Windows 헤더 파일:
 #include <windows.h>
 #include <stdio.h>
-#include "WinUtil.h"
+#include "Debug.h"
