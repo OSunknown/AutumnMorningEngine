@@ -54,7 +54,7 @@ bool ColorShaderClass::Render(ID3D11DeviceContext * deviceContext, int indexCoun
 	return true;
 }
 
-bool ColorShaderClass::InitializeShader(ID3D11Device * device, HWND hWnd, WCHAR * vsFilename, WCHAR * psFilename) //<- LPCSTR *로 수정(원본 Char *)
+bool ColorShaderClass::InitializeShader(ID3D11Device * device, HWND hWnd, WCHAR * vsFilename, WCHAR * psFilename) 
 {
 	HRESULT result;
 	ID3D10Blob* errorMessage;

@@ -7,8 +7,10 @@
 #include "D3DClass.h"
 #include "Cameraclass.h"
 #include "ModelClass.h"
-#include "ColorShaderClass.h"
-#include "textureshaderclass.h"
+//#include "ColorShaderClass.h"
+//#include "TextureShaderClass.h"
+#include "LightClass.h"
+#include "LightShaderClass.h"
 /////////////
 // GLOBALS //
 /////////////
@@ -29,13 +31,15 @@ public:
 	bool Frame();
 
 private:
-	bool Render();
+	bool Render(float);
 
 private:
 	D3DClass * m_D3D;
 	CameraClass * m_Camera;
 	ModelClass* m_Model;
-	ColorShaderClass * m_ColorShader;
-	TextureShaderClass* m_TextureShader;
+//	ColorShaderClass * m_ColorShader;
+//	TextureShaderClass* m_TextureShader;
+	LightShaderClass* m_LightShader;
+	LightClass* m_Light;
 };
 

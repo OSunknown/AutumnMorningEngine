@@ -1,21 +1,30 @@
 #pragma once
 #include<D3D11.h>
-#include<D3DX10math.h>
+#include"Math.h"
 #pragma comment(lib,"D3D11.lib")
 
 #include "textureClass.h"
 class ModelClass
 {
 private:
+	//color
 	/*struct VertexType
 	{
 		D3DXVECTOR3 position;
 		D3DXVECTOR4 color;
 	};*/
+	//Texture
+	/*struct VertexType
+	{
+		Vector3 position;
+		Vector2 texture;
+	};
+*/
 	struct VertexType
 	{
-		D3DXVECTOR3 position;
-		D3DXVECTOR2 texture;
+		Vector3 position;
+		Vector2 texture;
+		Vector3 normal;
 	};
 public:
 	ModelClass();
