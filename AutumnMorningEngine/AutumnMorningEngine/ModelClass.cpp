@@ -97,20 +97,20 @@ bool ModelClass::InitializeBuffers(ID3D11Device * device)
 	}
 
 	//Load the vertex array with data
-	vertices[0].position = Vector3(-1.0f, -1.0f, 0.0f);  // Bottom left.
+	vertices[0].position = D3DXVECTOR3(-1.0f, -1.0f, 0.0f);  // Bottom left.
 	//vertices[0].color = D3DXVECTOR4(0.0f, 1.0f, 0.0f, 1.0f);
-	vertices[0].texture = Vector2(0.0f, 1.0f);
-	vertices[0].normal = Vector3(0.0f, 0.0f, -1.0f);
+	vertices[0].texture = D3DXVECTOR2(0.0f, 1.0f);
+	vertices[0].normal = D3DXVECTOR3(0.0f, 0.0f, -1.0f);
 
-	vertices[1].position = Vector3(0.0f, 1.0f, 0.0f);  // Top middle.
+	vertices[1].position = D3DXVECTOR3(0.0f, 1.0f, 0.0f);  // Top middle.
 	//vertices[1].color = D3DXVECTOR4(0.0f, 1.0f, 0.0f, 1.0f);
-	vertices[1].texture = Vector2(0.5f, 0.0f);
-	vertices[1].normal = Vector3(0.0f, 0.0f, -1.0f);
+	vertices[1].texture = D3DXVECTOR2(0.5f, 0.0f);
+	vertices[1].normal = D3DXVECTOR3(0.0f, 0.0f, -1.0f);
 
-	vertices[2].position = Vector3(1.0f, -1.0f, 0.0f);  // Bottom right.
+	vertices[2].position = D3DXVECTOR3(1.0f, -1.0f, 0.0f);  // Bottom right.
 	//vertices[2].color = D3DXVECTOR4(0.0f, 1.0f, 0.0f, 1.0f);
-	vertices[2].texture = Vector2(1.0f, 1.0f);
-	vertices[2].normal = Vector3(0.0f, 0.0f, -1.0f);
+	vertices[2].texture = D3DXVECTOR2(1.0f, 1.0f);
+	vertices[2].normal = D3DXVECTOR3(0.0f, 0.0f, -1.0f);
 
 
 	//Load the index array with data  <- 이 부분 잘 모르겠네..

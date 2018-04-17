@@ -6,8 +6,20 @@ void Debug::Log(const char * value)
 	return;
 }
 
-void Debug::Log(const Vector3 value)
+void Debug::Log(Vector2 value)
 {
-	printf("(%3.3f, %3.3f, %3.3f)\n", value.X, value.Y, value.Z);
+	printf("(%.3f, %.3f)\n", value.X, value.Y);
+	return;
+}
+
+void Debug::Log(Vector3 value)
+{
+	printf("(%.3f, %.3f, %.3f)\n", value.X, value.Y, value.Z);
+	return;
+}
+
+void Debug::Log(Vector4 value)
+{
+	printf("(%.3f, %.3f, %.3f, %.3f)\n", value.X, value.Y, value.Z, value.W);
 	return;
 }

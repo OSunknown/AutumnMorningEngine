@@ -45,6 +45,7 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight,
 	D3D11_VIEWPORT viewport;
 	float fieldOfView, screenAspect;
 
+
 	m_vsync_enabled = vsync;
 
 	result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&factory);

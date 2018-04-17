@@ -1,6 +1,6 @@
 #pragma once
 #include<D3D11.h>
-#include"Math.h"
+#include <D3DX10math.h>
 #pragma comment(lib,"D3D11.lib")
 
 #include "textureClass.h"
@@ -22,9 +22,9 @@ private:
 */
 	struct VertexType
 	{
-		Vector3 position;
-		Vector2 texture;
-		Vector3 normal;
+		D3DXVECTOR3 position;
+		D3DXVECTOR2 texture;
+		D3DXVECTOR3 normal;
 	};
 public:
 	ModelClass();

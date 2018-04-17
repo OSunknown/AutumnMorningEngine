@@ -4,7 +4,6 @@
 #include <d3dx10math.h>
 #include <d3dx11async.h>
 #include <fstream>
-#include "Math.h"
 using namespace std;
 
 class LightShaderClass

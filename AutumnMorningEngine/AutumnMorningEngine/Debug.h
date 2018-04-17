@@ -1,9 +1,13 @@
 #pragma once
-#include <stdio.h>
 #include "Math.h"
 struct Debug
 {
 public:
-	static void Log(const char * value);
-	static void Log(const Vector3 value);
+	static void Log(const char *  );
+	
+	static void Log(Vector2);
+	static void Log(Vector3);
+	static void Log(Vector4);
 };
+
+

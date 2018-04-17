@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Math.h"
 #include  <D3DX10math.h>
 class LightClass
 {

@@ -31,6 +31,12 @@
     <Filter Include="Shader\public">
       <UniqueIdentifier>{e9599635-12b9-4324-b371-2cafecbd8ac0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math\public">
+      <UniqueIdentifier>{bb1a3614-adb4-472f-bdd3-910f4b13e621}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\private">
+      <UniqueIdentifier>{47ce80e3-7edf-4481-8605-9dd5b6c4aa2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ApplicationAwake.cpp">
@@ -60,9 +66,6 @@
     <ClCompile Include="Debug.cpp">
       <Filter>WinMain</Filter>
     </ClCompile>
-    <ClCompile Include="Math.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
     <ClCompile Include="ColorShaderClass.cpp">
       <Filter>Shader\public</Filter>
     </ClCompile>
@@ -74,6 +77,9 @@
     </ClCompile>
     <ClCompile Include="LightClass.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Math\private</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,22 +110,10 @@
     <ClInclude Include="Debug.h">
       <Filter>WinMain</Filter>
     </ClInclude>
-    <ClInclude Include="Math.h">
-      <Filter>Math</Filter>
-    </ClInclude>
     <ClInclude Include="Matrix.h">
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector3.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector4.h">
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="TextureShaderClass.h">
@@ -133,6 +127,18 @@
     </ClInclude>
     <ClInclude Include="LightClass.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Math\public</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Math\public</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4.h">
+      <Filter>Math\public</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Math\public</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
