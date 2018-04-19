@@ -66,20 +66,29 @@
     <ClCompile Include="Debug.cpp">
       <Filter>WinMain</Filter>
     </ClCompile>
-    <ClCompile Include="ColorShaderClass.cpp">
-      <Filter>Shader\public</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureShaderClass.cpp">
-      <Filter>Shader\public</Filter>
-    </ClCompile>
-    <ClCompile Include="LightShaderClass.cpp">
-      <Filter>Shader\public</Filter>
-    </ClCompile>
     <ClCompile Include="LightClass.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Math.cpp">
       <Filter>Math\private</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>Math\private</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>Math\private</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector4.cpp">
+      <Filter>Math\private</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorShaderClass.cpp">
+      <Filter>Shader\private</Filter>
+    </ClCompile>
+    <ClCompile Include="LightShaderClass.cpp">
+      <Filter>Shader\private</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureShaderClass.cpp">
+      <Filter>Shader\private</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,15 +125,6 @@
     <ClInclude Include="Mesh.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="TextureShaderClass.h">
-      <Filter>Shader\private</Filter>
-    </ClInclude>
-    <ClInclude Include="ColorShaderClass.h">
-      <Filter>Shader\private</Filter>
-    </ClInclude>
-    <ClInclude Include="LightShaderClass.h">
-      <Filter>Shader\private</Filter>
-    </ClInclude>
     <ClInclude Include="LightClass.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -139,6 +139,15 @@
     </ClInclude>
     <ClInclude Include="Math.h">
       <Filter>Math\public</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorShaderClass.h">
+      <Filter>Shader\public</Filter>
+    </ClInclude>
+    <ClInclude Include="LightShaderClass.h">
+      <Filter>Shader\public</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureShaderClass.h">
+      <Filter>Shader\public</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

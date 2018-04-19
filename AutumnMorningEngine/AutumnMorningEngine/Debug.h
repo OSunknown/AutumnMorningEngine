@@ -1,5 +1,6 @@
 #pragma once
 #include "Math.h"
+#include <D3DX10math.h>
 struct Debug
 {
 public:
@@ -8,6 +9,8 @@ public:
 	static void Log(Vector2);
 	static void Log(Vector3);
 	static void Log(Vector4);
+	static void Log(D3DXVECTOR3);
+	static void Log(D3DXVECTOR4);
 };
 
 

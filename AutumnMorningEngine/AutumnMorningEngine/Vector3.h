@@ -4,13 +4,13 @@
 struct Vector3
 {
 public:
-	float X;
-	float Y;
-	float Z;
+	float x;
+	float y;
+	float z;
 public:
-	Vector3() : X(0), Y(0), Z(0) {}
+	Vector3() : x(0), y(0), z(0) {}
 	Vector3(const Vector3&) {};
-	Vector3(float InX, float InY, float InZ) : X(InX), Y(InY), Z(InZ) {}
+	Vector3(float InX, float InY, float InZ) : x(InX), y(InY), z(InZ) {}
 	~Vector3() {};
 public://Static Properties
 	static const Vector3 Vector3::zero;
@@ -26,70 +26,70 @@ public:
 	// 언리얼에선 Size()로 쓰는데.. 
 	const float Vector3::magnitude() 
 	{
-		return X * X + Y * Y + Z * Z;
+		return x * x + y * y + z * z;
 	}
 public:
-	Vector3 operator+(const Vector3&) const;
-	Vector3 operator-(const Vector3&) const;
-	Vector3 operator*(const float&) const;
-	Vector3 operator/(const float&) const;
-	Vector3 operator+=(const Vector3&);
-	Vector3 operator-=(const Vector3&);
+	Vector3& operator+(const Vector3&) const;
+	Vector3& operator-(const Vector3&) const;
+	Vector3& operator*(const float&) const;
+	Vector3& operator/(const float&) const;
+	Vector3& operator+=(const Vector3&);
+	Vector3& operator-=(const Vector3&);
 public:
 	//float Dist(const Vector3 &V1, const Vector3 &V2);
 	//float DistSquared(const Vector3 &V1, const Vector3 &V2);
 	Vector2 ToVector2();
 };
 
-FORCEINLINE Vector3 Vector3::operator+(const Vector3& v) const
+FORCEINLINE Vector3& Vector3::operator+(const Vector3& v) const
 {
 	Vector3 result;
-	result.X = X + v.X;
-	result.Y = Y + v.Y;
-	result.Z = Z + v.Z;
+	result.x = x + v.x;
+	result.y = y + v.y;
+	result.z = z + v.z;
 	return result;
 }
 
-FORCEINLINE Vector3 Vector3::operator-(const Vector3& v) const
+FORCEINLINE Vector3& Vector3::operator-(const Vector3& v) const
 {
 	Vector3 result;
-	result.X = X - v.X;
-	result.Y = Y - v.Y;
-	result.Z = Z - v.Z;
+	result.x = x - v.x;
+	result.y = y - v.y;
+	result.z = z - v.z;
 	return result;
 }
 
-FORCEINLINE Vector3 Vector3::operator*(const float& scalar) const
+FORCEINLINE Vector3& Vector3::operator*(const float& scalar) const
 {
 	Vector3 result;
-	result.X = X * scalar;
-	result.Y = Y * scalar;
-	result.Z = Z * scalar;
+	result.x = x * scalar;
+	result.y = y * scalar;
+	result.z = z * scalar;
 	return result;
 }
 
-FORCEINLINE Vector3 Vector3::operator/(const float& scalar) const
+FORCEINLINE Vector3& Vector3::operator/(const float& scalar) const
 {
 	Vector3 result;
-	result.X = X / scalar;
-	result.Y = Y / scalar;
-	result.Z = Z / scalar;
+	result.x = x / scalar;
+	result.y = y / scalar;
+	result.z = z / scalar;
 	return result;
 }
 
-FORCEINLINE Vector3 Vector3::operator+=(const Vector3& v)
+FORCEINLINE Vector3& Vector3::operator+=(const Vector3& v)
 {
-	X += v.X;
-	Y += v.Y;
-	Z += v.Z;
+	x += v.x;
+	y += v.y;
+	z += v.z;
 	return *this;
 }
 
-FORCEINLINE Vector3 Vector3::operator-=(const Vector3& v)
+FORCEINLINE Vector3& Vector3::operator-=(const Vector3& v)
 {
-	X -= v.X;
-	Y -= v.Y;
-	Z -= v.Z;
+	x -= v.x;
+	y -= v.y;
+	z -= v.z;
 	return *this;
 }
 
@@ -105,5 +105,5 @@ FORCEINLINE Vector3 Vector3::operator-=(const Vector3& v)
 
 FORCEINLINE Vector2 Vector3::ToVector2()
 {
-	return Vector2(X,Y);
+	return Vector2(x,y);
 }

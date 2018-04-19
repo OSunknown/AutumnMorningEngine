@@ -14,12 +14,22 @@ void Debug::Log(Vector2 value)
 
 void Debug::Log(Vector3 value)
 {
-	printf("(%.3f, %.3f, %.3f)\n", value.X, value.Y, value.Z);
+	printf("(%.3f, %.3f, %.3f)\n", value.x, value.y, value.z);
 	return;
 }
 
 void Debug::Log(Vector4 value)
 {
-	printf("(%.3f, %.3f, %.3f, %.3f)\n", value.X, value.Y, value.Z, value.W);
+	printf("(%.3f, %.3f, %.3f, %.3f)\n", value.x, value.y, value.z, value.w);
 	return;
+}
+
+void Debug::Log(D3DXVECTOR3 value)
+{
+	printf("(%.3f, %.3f, %.3f)\n", value.x, value.y, value.z);
+}
+
+void Debug::Log(D3DXVECTOR4 value)
+{
+	printf("(%.3f, %.3f, %.3f, %.3f)\n", value.x, value.y, value.z, value.w);
 }

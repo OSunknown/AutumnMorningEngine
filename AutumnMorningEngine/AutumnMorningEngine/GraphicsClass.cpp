@@ -113,16 +113,17 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hWnd)
 	{
 		return false;
 	}
-
+	Debug::Log("m_Light \n");
+	m_Light->a = 10.0f;
 	// Initialize the light object.
 	m_Light->SetDiffuseColor(1.0f, 0.0f, 1.0f, 1.0f);
 	m_Light->SetDirection(0.0f, 0.0f, 1.0f);
-
 	return true;
 }
 
 void GraphicsClass::Shutdown()
 {
+	Debug::Log("Graphics ShutDonw");
 	// Release the light object.
 	if (m_Light)
 	{
@@ -219,7 +220,10 @@ bool GraphicsClass::Render(float rotation)
 
 	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 	m_Model->Render(m_D3D->GetDeviceContext());
-
+	if (m_Light->a == 10.0f)
+	{
+		Debug::Log("aaaa");
+	}
 	// Render the model using the light shader.
 	result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
 		m_Model->GetTexture(), m_Light->GetDirection(), m_Light->GetDiffuseColor());

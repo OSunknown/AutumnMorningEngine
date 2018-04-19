@@ -11,6 +11,8 @@
 //#include "TextureShaderClass.h"
 #include "LightClass.h"
 #include "LightShaderClass.h"
+
+#include"Debug.h"
 /////////////
 // GLOBALS //
 /////////////

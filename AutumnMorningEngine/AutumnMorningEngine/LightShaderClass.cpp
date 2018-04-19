@@ -43,10 +43,9 @@ void LightShaderClass::Shutdown()
 }
 
 bool LightShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix,
-	D3DXMATRIX projectionMatrix, ID3D11ShaderResourceView* texture, D3DXVECTOR3  lightDirection, D3DXVECTOR4 diffuseColor)
+	D3DXMATRIX projectionMatrix, ID3D11ShaderResourceView* texture, Vector3  lightDirection, Vector4 diffuseColor)
 {
 	bool result;
-	
 	// Set the shader parameters that it will use for rendering.
 	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, texture, lightDirection, diffuseColor);
 	if (!result)
@@ -313,8 +312,8 @@ void LightShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND h
 }
 
 bool LightShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix,
-	D3DXMATRIX projectionMatrix, ID3D11ShaderResourceView* texture, D3DXVECTOR3  lightDirection,
-	D3DXVECTOR4 diffuseColor)
+	D3DXMATRIX projectionMatrix, ID3D11ShaderResourceView* texture, Vector3  lightDirection,
+	Vector4 diffuseColor)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
