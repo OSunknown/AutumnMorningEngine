@@ -8,10 +8,9 @@ public:
 	float y;
 	float z;
 public:
-	Vector3() : x(0), y(0), z(0) {}
-	Vector3(const Vector3&) {};
-	Vector3(float InX, float InY, float InZ) : x(InX), y(InY), z(InZ) {}
-	~Vector3() {};
+	Vector3();
+	Vector3(float InX, float InY, float InZ)  { x = InX; y = InY;  z = InZ; } //: x(InX), y(InY), z(InZ)
+	~Vector3();
 public://Static Properties
 	static const Vector3 Vector3::zero;
 	static const Vector3 Vector3::one;
@@ -39,6 +38,9 @@ public:
 	//float Dist(const Vector3 &V1, const Vector3 &V2);
 	//float DistSquared(const Vector3 &V1, const Vector3 &V2);
 	Vector2 ToVector2();
+	Vector3 Get() {
+		return Vector3(x, y, z);
+	}
 };
 
 FORCEINLINE Vector3& Vector3::operator+(const Vector3& v) const

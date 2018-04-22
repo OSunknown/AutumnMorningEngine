@@ -12,9 +12,10 @@ public:
 
 	void SetDiffuseColor(float, float, float, float);
 	void SetDirection(float, float, float);
-	float a;
-	Vector4 GetDiffuseColor();
+
+	Vector4 GetDiffuseColor() ;
 	Vector3 GetDirection();
+	
 private:
 	Vector4 m_diffuseColor;
 	Vector3 m_direction;

@@ -4,6 +4,8 @@
 LightClass::LightClass()
 {
 	Debug::Log("LightClass Awake");
+	m_diffuseColor = Vector4::zero;
+	m_direction = Vector3::zero;
 }
 
 LightClass::LightClass(const LightClass& other)
@@ -23,22 +25,18 @@ void LightClass::SetDiffuseColor(float red, float green, float blue, float alpha
 
 void LightClass::SetDirection(float x, float y, float z)
 {
-	m_direction = Vector3(x, y, z);
+	m_direction = Vector3(x, y, z);	
 	return;
 }
 
 
 Vector4 LightClass::GetDiffuseColor()
 {
-	Debug::Log("LightClass GetDiffuseColor \n");
-	Debug::Log(m_diffuseColor);
 	return m_diffuseColor;
 }
 
 
 Vector3 LightClass::GetDirection()
 {
-	Debug::Log("LightClass GetDirection \n");
-	Debug::Log(m_direction);
 	return m_direction;
 }
