@@ -70,16 +70,21 @@ void CameraClass::Render()
 	lookAt.x = 0.0f;
 	lookAt.y = 0.0f;
 	lookAt.z = 1.0f;
+	
 
 	// Set the yaw (Y axis), pitch (X axis), and roll (Z axis) rotations in radians.
-	pitch = m_rotationX * 0.0174532925f;
-	yaw = m_rotationY * 0.0174532925f;
-	roll = m_rotationZ * 0.0174532925f;
+	pitch = m_rotationX * radians;
+	yaw = m_rotationY * radians;
+	roll = m_rotationZ * radians;
 
+	Matrix4 rot(1);
+
+	//MatrixRotationYawPitchRoll(&rot, yaw, pitch, roll);
+	Debug::Log(rot);
+	MatrixTranspose(&rot, &rot);
+	Debug::Log(rot);
 	// Create the rotation matrix from the yaw, pitch, and roll values.
 	D3DXMatrixRotationYawPitchRoll(&rotationMatrix, yaw, pitch, roll);
-
-	intone();
 
 	// Transform the lookAt and up vector by the rotation matrix so the view is correctly rotated at the origin.
 	D3DXVec3TransformCoord(&lookAt, &lookAt, &rotationMatrix);

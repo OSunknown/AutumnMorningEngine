@@ -1,6 +1,6 @@
 #pragma once
 #include"Vector3.h"
-
+#include"Matrix4.h"
 struct Vector4
 {
 public:
@@ -10,6 +10,7 @@ public:
 	float w;
 public:
 	Vector4() : x(0), y(0), z(0), w(0) { x = 0; y = 0; z = 0; w = 0; };
+	Vector4(const Vector3 *v, float Inw) { x = (v->x); y = (v->y); z = (v->z); w = (Inw); };
 	Vector4(float InX, float InY, float InZ, float InW); //: x(InX), y(InY), z(InZ), w(InW)
 	~Vector4() {};
 public://Static Properties
@@ -19,6 +20,7 @@ public:
 	Vector4& operator+(const Vector4&) const;
 	Vector4& operator-(const Vector4&) const;
 	Vector4& operator*(const float&) const;
+	Vector4& operator*(const Matrix4&) const;
 	Vector4& operator/(const float&) const;
 	Vector4& operator+=(const Vector4&);
 	Vector4& operator-=(const Vector4&);
@@ -61,6 +63,16 @@ FORCEINLINE Vector4& Vector4::operator*(const float& scalar) const
 	result.x = x * scalar;
 	result.y = y * scalar;
 	result.z = z * scalar;
+	return result;
+}
+
+FORCEINLINE Vector4 & Vector4::operator*(const Matrix4 & m) const
+{
+	Vector4 result;
+	result.x = x * m._11 + y * m._21 + z * m._31 + w * m._41;
+	result.y = x * m._12 + y * m._22 + z * m._32 + w * m._42;
+	result.z = x * m._13 + y * m._23 + z * m._33 + w * m._43;
+	result.w = x * m._14 + y * m._24 + z * m._34 + w * m._44;
 	return result;
 }
 

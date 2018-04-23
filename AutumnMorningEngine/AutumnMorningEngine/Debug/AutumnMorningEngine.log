@@ -268,7 +268,10 @@ c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): w
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': 매크로 재정의
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\winerror.h(54103): note: 'D3D10_ERROR_FILE_NOT_FOUND'의 이전 정의를 참조하십시오.
   Math.cpp
-  Matrix4.cpp
+d:\ppproject\directxengine\autumnmorningengine\autumnmorningengine\autumnmorningengine\math.cpp(51): error C2679: 이항 '*': 오른쪽 피연산자로 'const Matrix4 *' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+  d:\ppproject\directxengine\autumnmorningengine\autumnmorningengine\autumnmorningengine\vector4.h(70): note: 'Vector4 &Vector4::operator *(const Matrix4 &) const'일 수 있습니다.
+  d:\ppproject\directxengine\autumnmorningengine\autumnmorningengine\autumnmorningengine\vector4.h(61): note: 또는       'Vector4 &Vector4::operator *(const float &) const'
+  d:\ppproject\directxengine\autumnmorningengine\autumnmorningengine\autumnmorningengine\math.cpp(51): note: 인수 목록 '(Vector4, const Matrix4 *)'을(를) 일치시키는 동안
   SystemClass.cpp
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED': 매크로 재정의
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\winerror.h(53655): note: 'DXGI_STATUS_OCCLUDED'의 이전 정의를 참조하십시오.
@@ -375,5 +378,5 @@ c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): w
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\winerror.h(54094): note: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'의 이전 정의를 참조하십시오.
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': 매크로 재정의
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\winerror.h(54103): note: 'D3D10_ERROR_FILE_NOT_FOUND'의 이전 정의를 참조하십시오.
+  Vector4.cpp
   코드를 생성하고 있습니다...
-  AutumnMorningEngine.vcxproj -> D:\PPProject\DirectXEngine\AutumnMorningEngine\AutumnMorningEngine\Debug\AutumnMorningEngine.exe

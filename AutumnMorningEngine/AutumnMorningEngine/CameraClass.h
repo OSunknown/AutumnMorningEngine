@@ -2,7 +2,7 @@
 
 #include<D3DX10math.h>
 #include "Math.h"
-
+#include "Debug.h"
 class CameraClass
 {
 public:
