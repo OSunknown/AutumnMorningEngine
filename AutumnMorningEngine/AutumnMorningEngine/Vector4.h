@@ -30,9 +30,6 @@ public:
 	float DistSquared(const Vector4 &V1, const Vector4 &V2);
 	Vector2 ToVector2();
 	Vector3 ToVector3();
-	Vector4 Get() {
-		return Vector4(x, y, z, w);
-	};
 
 };
 
