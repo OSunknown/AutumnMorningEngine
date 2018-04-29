@@ -317,7 +317,7 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight,
 	screenAspect = (float)screenWidth / (float)screenHeight;
 
 	//Create the projection matrix for 3D rendering
-	D3DXMatrixPerspectiveFovLH(&m_projectionMatrix, fieldOfView, screenAspect, screenNear, screenDepth);
+	MatrixPerspectiveFovLH(&m_projectionMatrix, fieldOfView, screenAspect, screenNear, screenDepth);
 
 	//Initialize the world matrix to the identity matrix
 	D3DXMatrixIdentity(&m_worldMatrix);
@@ -428,19 +428,19 @@ ID3D11DeviceContext * D3DClass::GetDeviceContext()
 	return m_deviceContext;
 }
 
-void D3DClass::GetProjectionMatrix(D3DXMATRIX & projectionMatrix)
+void D3DClass::GetProjectionMatrix(Matrix4 & projectionMatrix)
 {
 	projectionMatrix = m_projectionMatrix;
 	return;
 }
 
-void D3DClass::GetWorldMatrix(D3DXMATRIX & worldMatrix)
+void D3DClass::GetWorldMatrix(Matrix4 & worldMatrix)
 {
 	worldMatrix = m_worldMatrix;
 	return;
 }
 
-void D3DClass::GetOrthoMatrix(D3DXMATRIX & orthoMatrix)
+void D3DClass::GetOrthoMatrix(Matrix4 & orthoMatrix)
 {
 	orthoMatrix = m_orthoMatrix;
 	return;

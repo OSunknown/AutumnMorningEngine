@@ -10,6 +10,7 @@ public:
 public:
 	Vector3();
 	Vector3(float InX, float InY, float InZ)  { x = InX; y = InY;  z = InZ; } //: x(InX), y(InY), z(InZ)
+	Vector3(CONST Vector3 *);
 	~Vector3();
 public://Static Properties
 	static const Vector3 Vector3::zero;
@@ -26,6 +27,16 @@ public:
 	const float Vector3::magnitude() 
 	{
 		return x * x + y * y + z * z;
+	}
+	void Vector3::Normalized()
+	{
+		float Max = -INFINITY;
+		if (Max < x) Max = x;
+		if (Max < y) Max = y;
+		if (Max < z) Max = z;
+		x /= Max;
+		y /= Max;
+		z /= Max;
 	}
 public:
 	Vector3& operator+(const Vector3&) const;

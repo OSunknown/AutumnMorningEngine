@@ -42,8 +42,8 @@ void LightShaderClass::Shutdown()
 	return;
 }
 
-bool LightShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix,
-	D3DXMATRIX projectionMatrix, ID3D11ShaderResourceView* texture, Vector3  lightDirection, Vector4 diffuseColor)
+bool LightShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, Matrix4 worldMatrix, Matrix4 viewMatrix,
+	Matrix4 projectionMatrix, ID3D11ShaderResourceView* texture, Vector3  lightDirection, Vector4 diffuseColor)
 {
 	bool result;
 	// Set the shader parameters that it will use for rendering.
@@ -311,8 +311,8 @@ void LightShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND h
 	return;
 }
 
-bool LightShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix,
-	D3DXMATRIX projectionMatrix, ID3D11ShaderResourceView* texture, Vector3  lightDirection,
+bool LightShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, Matrix4 worldMatrix, Matrix4 viewMatrix,
+	Matrix4 projectionMatrix, ID3D11ShaderResourceView* texture, Vector3  lightDirection,
 	Vector4 diffuseColor)
 {
 	HRESULT result;
@@ -323,9 +323,9 @@ bool LightShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, D
 
 
 	// Transpose the matrices to prepare them for the shader.
-	D3DXMatrixTranspose(&worldMatrix, &worldMatrix);
-	D3DXMatrixTranspose(&viewMatrix, &viewMatrix);
-	D3DXMatrixTranspose(&projectionMatrix, &projectionMatrix);
+	MatrixTranspose(&worldMatrix, &worldMatrix);
+	MatrixTranspose(&viewMatrix, &viewMatrix);
+	MatrixTranspose(&projectionMatrix, &projectionMatrix);
 
 	// Lock the constant buffer so it can be written to.
 	result = deviceContext->Map(m_matrixBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);

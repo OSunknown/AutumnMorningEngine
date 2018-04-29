@@ -1,5 +1,6 @@
 #pragma once
 #include "Matrix3.h"
+
 struct Matrix4
 {
 public:
@@ -18,6 +19,28 @@ public:
 		_21(21), _22(22), _23(23), _24(24),
 		_31(31), _32(32), _33(33), _34(34),
 		_41(41), _42(42), _43(43), _44(44) {};
+	Matrix4(float _Line1x , float _Line1y, float _Line1z, float _Line1w,
+		float _Line2x, float _Line2y, float _Line2z, float _Line2w,
+		float _Line3x, float _Line3y, float _Line3z, float _Line3w,
+		float _Line4x, float _Line4y, float _Line4z, float _Line4w)
+	{
+		_11 = _Line1x;
+		_12 = _Line1y;
+		_13 = _Line1z;
+		_14 = _Line1w;
+		_21 = _Line2x;
+		_22 = _Line2y;
+		_23 = _Line2z;
+		_24 = _Line2w;
+		_31 = _Line3x;
+		_32 = _Line3y;
+		_33 = _Line3z;
+		_34 = _Line3w;
+		_41 = _Line4x;
+		_42 = _Line4y;
+		_43 = _Line4z;
+		_44 = _Line4w;
+	}
 	Matrix4(const Matrix4 * m)
 	{
 		_11 = m->_11;
@@ -87,6 +110,20 @@ public:
 		_42 = 0.0f;
 		_43 = 0.0f;
 		_44 = 1.0f;
+	}
+
+	void SetRotationY(float Angle)
+	{
+		SetIdentity();
+		_11 = cosf(Angle);
+		_13 = -sinf(Angle);
+		_31 = sinf(Angle);
+		_33 = cos(Angle);
+	}
+
+	void SetMatrixPerspectiveFovLH(FLOAT fovY, FLOAT Aspect, FLOAT zn, FLOAT zf)
+	{
+
 	}
 };
 

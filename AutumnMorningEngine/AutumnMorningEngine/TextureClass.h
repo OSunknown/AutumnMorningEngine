@@ -5,7 +5,7 @@ class TextureClass
 {
 public:
 	TextureClass();
-	TextureClass(const TextureClass&);
+	TextureClass(const TextureClass&) ;
 	~TextureClass();
 
 	bool Initialize(ID3D11Device*, WCHAR*);

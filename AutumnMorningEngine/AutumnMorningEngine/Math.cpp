@@ -17,10 +17,16 @@ const Vector3 Vector3::left(-1.0f, 0.0f, 0.0f);
 const Vector4 Vector4::zero(0.0f, 0.0f, 0.0f,0.0f);
 const Vector4 Vector4::one(1.0f, 1.0f, 1.0f,1.0f);
 
-Matrix4* MatrixRotationYawPitchRoll(Matrix4 *rotationMatrix, float yaw, float pitch, float roll)
+Matrix4* MatrixRotationYawPitchRoll(Matrix4 *rotationMatrix, FLOAT yaw, FLOAT pitch, FLOAT roll)
 {
 	rotationMatrix->SetRotation(yaw, pitch, roll);
 	return rotationMatrix;
+}
+//Roll Rotation Y axis
+Matrix4 * MatrixRotationY(Matrix4 * pOut, FLOAT Angle)
+{
+	pOut->SetRotationY(Angle);
+	return pOut;
 }
 Matrix4* MatrixTranspose(Matrix4*pOut, CONST Matrix4 *pV)
 {
@@ -45,9 +51,50 @@ Matrix4* MatrixTranspose(Matrix4*pOut, CONST Matrix4 *pV)
 	pOut->_43 = temp;
 	return pOut;
 }
+Matrix4 * MatrixLookAtLH(Matrix4 * pOut, CONST Vector3 * pEye, CONST Vector3 * pAt, CONST Vector3 * pUp)
+{
+	Vector3 v, r, u;
+	v = (Vector3)pAt - (Vector3)pEye;
+	v.Normalized();
+	r = Cross((Vector3)pUp ,v);
+	r.Normalized();
+	u = Cross(v, r);
+
+	/*  zaxis = normal(At - Eye)
+		xaxis = normal(cross(Up, zaxis))
+		yaxis = cross(zaxis, xaxis)*/
+	/*	xaxis.x           yaxis.x           zaxis.x          0
+		xaxis.y           yaxis.y           zaxis.y          0
+		xaxis.z           yaxis.z           zaxis.z          0
+		- dot(xaxis, eye) - dot(yaxis, eye) - dot(zaxis, eye)  1*/
+	Vector4 mList[4] = {
+		Vector4(r.x,u.x,v.x,0),
+		Vector4(r.y,u.y,v.y,0),
+		Vector4(r.z,u.z,v.z,0),
+		Vector4(-dot(r,pEye),u.x,v.x,0)
+	};
+	return nullptr;
+}
+Matrix4 * MatrixPerspectiveFovLH(Matrix4 * pOut, const FLOAT fovy, FLOAT Aspect, FLOAT zn, FLOAT zf)
+{
+	return nullptr;
+}
 Vector3* Vec3TransformCoord(Vector3 *pOut, CONST Vector3 *pV, CONST Matrix4 *pM)
 {
 	Vector4 pC(pV,1);
 	pC = pC * pM;
 	return pOut;
+}
+Vector3 Cross(Vector3 left, Vector3 right)
+{
+	Vector3 returnValue;
+	returnValue.x = left.y * right.z - left.z * right.y;
+	returnValue.y = left.z * right.x - left.x * right.z;
+	returnValue.z = left.x * right.y - left.y * right.x;
+	return returnValue;
+}
+float dot(Vector3 left, Vector3 right)
+{
+	float returnValue = left.x*right.x + left.y*right.y + left.z*right.z;
+	return returnValue;
 }

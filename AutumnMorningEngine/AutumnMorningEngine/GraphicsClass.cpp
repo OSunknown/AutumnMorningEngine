@@ -199,7 +199,8 @@ bool GraphicsClass::Render(float rotation)
 {
 	// Clear the buffers to begin the scene.
 	//m_D3D->BeginScene(0.5f, 0.5f, 0.5f, 1.0f);
-	D3DXMATRIX viewMatrix, projectionMatrix, worldMatrix;
+	Matrix4 viewMatrix;
+	Matrix4 projectionMatrix, worldMatrix;
 	bool result;
 
 
@@ -215,7 +216,7 @@ bool GraphicsClass::Render(float rotation)
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 
 	// Rotate the world matrix by the rotation value so that the triangle will spin.
-	D3DXMatrixRotationY(&worldMatrix, rotation);
+	MatrixRotationY(&worldMatrix, rotation);
 
 	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 	m_Model->Render(m_D3D->GetDeviceContext());

@@ -17,11 +17,11 @@ public:
 	Vector3 GetRotation();
 
 	void Render();
-	void GetViewMatrix(D3DXMATRIX&);
+	void GetViewMatrix(Matrix4&);
 
 private:
 	float m_positionX, m_positionY, m_positionZ;
 	float m_rotationX, m_rotationY, m_rotationZ;
-	D3DXMATRIX m_viewMatrix;
+	Matrix4 m_viewMatrix;
 };
 

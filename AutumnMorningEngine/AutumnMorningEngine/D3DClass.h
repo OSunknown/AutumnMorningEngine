@@ -3,6 +3,7 @@
 #include <D3Dcommon.h>
 #include <D3D11.h>
 #include <D3DX10math.h>
+#include "Math.h"
 #pragma comment(lib,"DXGI.lib")
 #pragma comment(lib,"D3D11.lib")
 #pragma comment(lib,"D3DX11.lib")
@@ -23,9 +24,9 @@ public:
 	ID3D11Device* GetDevice();
 	ID3D11DeviceContext* GetDeviceContext();
 
-	void GetProjectionMatrix(D3DXMATRIX&);
-	void GetWorldMatrix(D3DXMATRIX&);
-	void GetOrthoMatrix(D3DXMATRIX&);
+	void GetProjectionMatrix(Matrix4&);
+	void GetWorldMatrix(Matrix4&);
+	void GetOrthoMatrix(Matrix4&);
 
 	void GetVideoCardInfo(char*, int&);
 
@@ -41,8 +42,8 @@ private:
 	ID3D11DepthStencilState* m_depthStencilState;
 	ID3D11DepthStencilView* m_depthStencilView;
 	ID3D11RasterizerState* m_rasterState;
-	D3DXMATRIX m_projectionMatrix;
-	D3DXMATRIX m_worldMatrix;
-	D3DXMATRIX m_orthoMatrix;
+	Matrix4 m_projectionMatrix;
+	Matrix4 m_worldMatrix;
+	Matrix4 m_orthoMatrix;
 };
 
