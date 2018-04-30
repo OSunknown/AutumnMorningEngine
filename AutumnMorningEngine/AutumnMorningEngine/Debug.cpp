@@ -12,6 +12,12 @@ void Debug::Log(const float value)
 	return;
 }
 
+void Debug::Log(const int value)
+{
+	printf("%d \n", value);
+	return;
+}
+
 void Debug::Log(Vector2 value)
 {
 	printf("(%.3f, %.3f)\n", value.x, value.y);

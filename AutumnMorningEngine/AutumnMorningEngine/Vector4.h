@@ -1,5 +1,5 @@
 #pragma once
-#include"Vector3.h"
+#include "stdafx.h"
 #include"Matrix4.h"
 struct Vector4
 {
@@ -10,7 +10,8 @@ public:
 	float w;
 public:
 	Vector4() : x(0), y(0), z(0), w(0) { x = 0; y = 0; z = 0; w = 0; };
-	Vector4(const Vector3 *v, float Inw) { x = (v->x); y = (v->y); z = (v->z); w = (Inw); };
+//	Vector4(const Vector3 *v, float Inw) { x = (v->x); y = (v->y); z = (v->z); w = (Inw); };
+	Vector4(const Vector4 *v) { x = (v->x); y = (v->y); z = (v->z); w = (v->w); };
 	Vector4(float InX, float InY, float InZ, float InW); //: x(InX), y(InY), z(InZ), w(InW)
 	~Vector4() {};
 public://Static Properties
@@ -28,9 +29,6 @@ public:
 public:
 	float Dist(const Vector4 &V1, const Vector4 &V2);
 	float DistSquared(const Vector4 &V1, const Vector4 &V2);
-	Vector2 ToVector2();
-	Vector3 ToVector3();
-
 };
 
 
@@ -65,12 +63,16 @@ FORCEINLINE Vector4& Vector4::operator*(const float& scalar) const
 
 FORCEINLINE Vector4 & Vector4::operator*(const Matrix4 & m) const
 {
-	Vector4 result;
-	result.x = x * m._11 + y * m._21 + z * m._31 + w * m._41;
+	return Vector4 (
+		x * m._11 + y * m._21 + z * m._31 + w * m._41, //x
+		x * m._12 + y * m._22 + z * m._32 + w * m._42, //y
+		x * m._13 + y * m._23 + z * m._33 + w * m._43, //z
+		x * m._14 + y * m._24 + z * m._34 + w * m._44);//w
+	/*result.x = x * m._11 + y * m._21 + z * m._31 + w * m._41;
 	result.y = x * m._12 + y * m._22 + z * m._32 + w * m._42;
 	result.z = x * m._13 + y * m._23 + z * m._33 + w * m._43;
-	result.w = x * m._14 + y * m._24 + z * m._34 + w * m._44;
-	return result;
+	result.w = x * m._14 + y * m._24 + z * m._34 + w * m._44;*/
+	//return result; //경고 C4172  해결 방법을 모르겠음..
 }
 
 FORCEINLINE Vector4& Vector4::operator/(const float& scalar) const
@@ -108,7 +110,3 @@ FORCEINLINE Vector4& Vector4::operator-=(const Vector4& v)
 //	return (V2.X - V1.X) * (V2.X - V1.X) + (V2.Y - V1.Y) * (V2.Y - V1.Y) +(V2.Z - V1.Z) * (V2.Z - V1.Z) ;
 //}
 
-FORCEINLINE Vector2 Vector4::ToVector2()
-{
-	return Vector2(x, y);
-}

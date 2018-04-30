@@ -54,7 +54,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hWnd)
 	}
 	//Initialize the model object;
 	//result = m_Model->Initialize(m_D3D->GetDevice());
-	result = m_Model->Initialize(m_D3D->GetDevice(), L"../AutumnMorningEngine/data/seafloor.dds");
+	result = m_Model->Initialize(m_D3D->GetDevice(),"../AutumnMorningEngine/data/cube.txt", L"../AutumnMorningEngine/data/seafloor.dds");
 	if (!result)
 	{
 		printf("Error Could not initialize the model object \n");
@@ -113,16 +113,19 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hWnd)
 	{
 		return false;
 	}
-	Debug::Log("m_Light \n");
+	Debug::Log("\n m_Light \n");
 	// Initialize the light object.
-	m_Light->SetDiffuseColor(1.0f, 0.0f, 1.0f, 1.0f);
+	m_Light->SetAmbientColor(0.15f, 0.15f, 0.15f, 1.0f);
+	m_Light->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
 	m_Light->SetDirection(0.0f, 0.0f, 1.0f);
+	m_Light->SetSpecularColor(1.0f, 1.0f, 1.0f, 1.0f);
+	m_Light->SetSpecularPower(32.0f);
 	return true;
 }
 
 void GraphicsClass::Shutdown()
 {
-	Debug::Log("Graphics ShutDonw");
+	Debug::Log("Graphics ShutDonw\n");
 	// Release the light object.
 	if (m_Light)
 	{
@@ -179,7 +182,7 @@ bool GraphicsClass::Frame()
 
 
 	// Update the rotation variable each frame.
-	rotation += (float)D3DX_PI * 0.01f;
+	rotation += (float)PI * 0.005f;
 	if (rotation > 360.0f)
 	{
 		rotation -= 360.0f;
@@ -223,7 +226,7 @@ bool GraphicsClass::Render(float rotation)
 
 	// Render the model using the light shader.
 	result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
-		m_Model->GetTexture(), m_Light->GetDirection(), m_Light->GetDiffuseColor());
+		m_Model->GetTexture(), m_Light->GetDirection(), m_Light->GetAmbientColor(), m_Light->GetDiffuseColor(), m_Camera->GetPosition(), m_Light->GetSpecularColor(), m_Light->GetSpecularPower());
 	if (!result)
 	{
 		return false;

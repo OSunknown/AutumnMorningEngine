@@ -1,6 +1,5 @@
 #pragma once
-#include "Vector2.h"
-
+#include "stdafx.h"
 struct Vector3
 {
 public:
@@ -48,10 +47,6 @@ public:
 public:
 	//float Dist(const Vector3 &V1, const Vector3 &V2);
 	//float DistSquared(const Vector3 &V1, const Vector3 &V2);
-	Vector2 ToVector2();
-	Vector3 Get() {
-		return Vector3(x, y, z);
-	}
 };
 
 FORCEINLINE Vector3& Vector3::operator+(const Vector3& v) const
@@ -115,8 +110,3 @@ FORCEINLINE Vector3& Vector3::operator-=(const Vector3& v)
 //{
 //	return (V2.X - V1.X) * (V2.X - V1.X) + (V2.Y - V1.Y) * (V2.Y - V1.Y) +(V2.Z - V1.Z) * (V2.Z - V1.Z) ;
 //}
-
-FORCEINLINE Vector2 Vector3::ToVector2()
-{
-	return Vector2(x,y);
-}

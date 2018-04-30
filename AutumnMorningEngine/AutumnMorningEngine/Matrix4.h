@@ -1,6 +1,5 @@
 #pragma once
 #include "Matrix3.h"
-
 struct Matrix4
 {
 public:
@@ -62,6 +61,7 @@ public:
 	}
 	~Matrix4() {};
 public:
+	
 	void SetIdentity()
 	{
 		_11 = 1.0f;
@@ -118,12 +118,43 @@ public:
 		_11 = cosf(Angle);
 		_13 = -sinf(Angle);
 		_31 = sinf(Angle);
-		_33 = cos(Angle);
+		_33 = cosf(Angle);
 	}
 
 	void SetMatrixPerspectiveFovLH(FLOAT fovY, FLOAT Aspect, FLOAT zn, FLOAT zf)
 	{
+		//원근법
+	//http://createcode.tistory.com/entry/Direct3D-%ED%88%AC%EC%98%81%EB%B3%80%ED%99%98%ED%96%89%EB%A0%AC
+		//https://msdn.microsoft.com/ko-kr/library/windows/desktop/bb205350(v=vs.85).aspx
+		float yScale = 1 / tanf(fovY / 2);
+		float xScale = yScale / Aspect;
+		_11 = xScale;
+		_12 = 0.0f;
+		_13 = 0.0f;
+		_14 = 0.0f;
+		_21 = 0.0f;
+		_22 = yScale;
+		_23 = 0.0f;
+		_24 = 0.0f;
+		_31 = 0.0f;
+		_32 = 0.0f;
+		_33 = zf /(zf-zn);
+		_34 = 1.0f;
+		_41 = 0.0f;
+		_42 = 0.0f;
+		_43 = -zn*zf/(zf-zn);
+		_44 = 0.0f;
+	}
 
+	void SetMatrixOrthoLH(FLOAT w, FLOAT h, FLOAT zn, FLOAT zf)
+	{
+		SetIdentity();
+		// 직교 행렬 
+		//https://msdn.microsoft.com/ko-kr/library/windows/desktop/bb204940(v=vs.85).aspx
+		_11 = 2 / w;
+		_22 = 2 / h;
+		_33 = 1 / (zf - zn);
+		_43 = zn / (zn - zf);
 	}
 };
 

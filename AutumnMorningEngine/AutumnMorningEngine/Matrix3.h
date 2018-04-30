@@ -1,6 +1,6 @@
 #pragma once
 #include "Matrix2.h"
-#include "Vector2.h"
+
 struct Matrix3
 {
 public:
@@ -59,7 +59,7 @@ public:
 	}
 
 	Matrix3 TRS(float TransX, float TransY, float degree, float scale) { return TRS(TransX, TransY, degree, scale, scale); };
-	Matrix3 TRS(float TransX, float TransY, float degree, Vector2 scale) { return TRS(TransX, TransY, degree, scale.x, scale.y);};
+//	Matrix3 TRS(float TransX, float TransY, float degree, Vector2 scale) { return TRS(TransX, TransY, degree, scale.x, scale.y);};
 	Matrix3 TRS(float TransX, float TransY, float degree, float scaleX, float scaleY)
 	{
 		Matrix3 TMat, RMat, SMat;

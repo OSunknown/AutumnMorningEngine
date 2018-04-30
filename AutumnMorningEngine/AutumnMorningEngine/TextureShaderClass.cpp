@@ -40,8 +40,8 @@ void TextureShaderClass::Shutdown()
 	return;
 }
 
-bool TextureShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix,
-	D3DXMATRIX projectionMatrix, ID3D11ShaderResourceView* texture)
+bool TextureShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, Matrix4 worldMatrix, Matrix4 viewMatrix,
+	Matrix4 projectionMatrix, ID3D11ShaderResourceView* texture)
 {
 	bool result;
 
@@ -279,8 +279,8 @@ void TextureShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND
 	return;
 }
 
-bool TextureShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix,
-	D3DXMATRIX projectionMatrix, ID3D11ShaderResourceView* texture)
+bool TextureShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, Matrix4 worldMatrix, Matrix4 viewMatrix,
+	Matrix4 projectionMatrix, ID3D11ShaderResourceView* texture)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -289,9 +289,9 @@ bool TextureShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext,
 
 
 	// Transpose the matrices to prepare them for the shader.
-	D3DXMatrixTranspose(&worldMatrix, &worldMatrix);
-	D3DXMatrixTranspose(&viewMatrix, &viewMatrix);
-	D3DXMatrixTranspose(&projectionMatrix, &projectionMatrix);
+	MatrixTranspose(&worldMatrix, &worldMatrix);
+	MatrixTranspose(&viewMatrix, &viewMatrix);
+	MatrixTranspose(&projectionMatrix, &projectionMatrix);
 
 	// Lock the constant buffer so it can be written to.
 	result = deviceContext->Map(m_matrixBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);

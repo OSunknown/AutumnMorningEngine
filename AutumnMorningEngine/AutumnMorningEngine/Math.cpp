@@ -53,12 +53,12 @@ Matrix4* MatrixTranspose(Matrix4*pOut, CONST Matrix4 *pV)
 }
 Matrix4 * MatrixLookAtLH(Matrix4 * pOut, CONST Vector3 * pEye, CONST Vector3 * pAt, CONST Vector3 * pUp)
 {
-	Vector3 v, r, u;
-	v = (Vector3)pAt - (Vector3)pEye;
-	v.Normalized();
-	r = Cross((Vector3)pUp ,v);
-	r.Normalized();
-	u = Cross(v, r);
+	Vector3 xaxis, yaxis, zaxis;
+	zaxis = (Vector3)pAt - (Vector3)pEye;
+	zaxis.Normalized();
+	xaxis = Cross((Vector3)pUp ,zaxis);
+	xaxis.Normalized();
+	yaxis = Cross(zaxis, xaxis);
 
 	/*  zaxis = normal(At - Eye)
 		xaxis = normal(cross(Up, zaxis))
@@ -67,21 +67,45 @@ Matrix4 * MatrixLookAtLH(Matrix4 * pOut, CONST Vector3 * pEye, CONST Vector3 * p
 		xaxis.y           yaxis.y           zaxis.y          0
 		xaxis.z           yaxis.z           zaxis.z          0
 		- dot(xaxis, eye) - dot(yaxis, eye) - dot(zaxis, eye)  1*/
-	Vector4 mList[4] = {
-		Vector4(r.x,u.x,v.x,0),
-		Vector4(r.y,u.y,v.y,0),
-		Vector4(r.z,u.z,v.z,0),
-		Vector4(-dot(r,pEye),u.x,v.x,0)
-	};
-	return nullptr;
+
+
+	pOut->_11 = xaxis.x;
+	pOut->_12 = yaxis.x;
+	pOut->_13 = zaxis.x;
+	pOut->_14 = 0.0f;
+	pOut->_21 = xaxis.y;
+	pOut->_22 = yaxis.y;
+	pOut->_23 = zaxis.y;
+	pOut->_24 = 0.0f;
+	pOut->_31 = xaxis.z;
+	pOut->_32 = yaxis.z;
+	pOut->_33 = zaxis.z;
+	pOut->_34 = 0.0f;
+	pOut->_41 = -dot(xaxis, pEye);
+	pOut->_42 = -dot(yaxis, pEye);
+	pOut->_43 = -dot(zaxis, pEye);
+	pOut->_44 = 1.0f;
+
+	return pOut;
 }
 Matrix4 * MatrixPerspectiveFovLH(Matrix4 * pOut, const FLOAT fovy, FLOAT Aspect, FLOAT zn, FLOAT zf)
 {
-	return nullptr;
+	pOut->SetMatrixPerspectiveFovLH(fovy, Aspect, zn, zf);
+	return pOut;
+}
+Matrix4 * MatrixOrthoLH(Matrix4 * pOut, FLOAT w, FLOAT h, FLOAT zn, FLOAT zf)
+{
+	pOut->SetMatrixOrthoLH(w, h, zn, zf);
+	return pOut;
+}
+Matrix4 * MatrixIdentity(Matrix4 * pOut)
+{
+	pOut->SetIdentity();
+	return pOut;
 }
 Vector3* Vec3TransformCoord(Vector3 *pOut, CONST Vector3 *pV, CONST Matrix4 *pM)
 {
-	Vector4 pC(pV,1);
+	Vector4 pC = ToVector4(pV,1);
 	pC = pC * pM;
 	return pOut;
 }
@@ -97,4 +121,35 @@ float dot(Vector3 left, Vector3 right)
 {
 	float returnValue = left.x*right.x + left.y*right.y + left.z*right.z;
 	return returnValue;
+}
+
+
+Vector2 ToVector2(Vector3 value)
+{
+	return Vector2(value.x, value.y);
+}
+
+Vector2 ToVector2(Vector4 value)
+{
+	return Vector2(value.x, value.y);
+}
+
+Vector3 ToVector3(Vector2 value, FLOAT z)
+{
+	return Vector3(value.x, value.y, z);
+}
+
+Vector3 ToVector3(Vector4 value)
+{
+	return Vector3(value.x, value.y,value.z);
+}
+
+Vector4 ToVector4(Vector2 value,FLOAT z, FLOAT w)
+{
+	return Vector4(value.x, value.y, z, w);
+}
+
+Vector4 ToVector4(Vector3 value , FLOAT w)
+{
+	return Vector4(value.x, value.y, value.z,w);
 }

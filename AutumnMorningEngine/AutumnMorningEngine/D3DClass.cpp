@@ -313,17 +313,17 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight,
 	m_deviceContext->RSSetViewports(1, &viewport);
 
 	//Setup the projcetion matrix
-	fieldOfView = (float)D3DX_PI / 4.0f;
+	fieldOfView = (float)PI / 4.0f;
 	screenAspect = (float)screenWidth / (float)screenHeight;
 
 	//Create the projection matrix for 3D rendering
 	MatrixPerspectiveFovLH(&m_projectionMatrix, fieldOfView, screenAspect, screenNear, screenDepth);
 
 	//Initialize the world matrix to the identity matrix
-	D3DXMatrixIdentity(&m_worldMatrix);
+	MatrixIdentity(&m_worldMatrix);
 
 	//Create an orthographic projection matrix for 2D rendering
-	D3DXMatrixOrthoLH(&m_orthoMatrix, (float)screenWidth, (float)screenHeight, screenNear, screenDepth);
+	MatrixOrthoLH(&m_orthoMatrix, (float)screenWidth, (float)screenHeight, screenNear, screenDepth);
 
 
 	return true;

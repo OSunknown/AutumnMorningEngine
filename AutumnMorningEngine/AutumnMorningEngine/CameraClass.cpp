@@ -77,12 +77,6 @@ void CameraClass::Render()
 	yaw = m_rotationY * radians;
 	roll = m_rotationZ * radians;
 
-	Matrix4 rot(1);
-
-	//MatrixRotationYawPitchRoll(&rot, yaw, pitch, roll);
-	Debug::Log(rot);
-	MatrixTranspose(&rot, &rot);
-	Debug::Log(rot);
 	// Create the rotation matrix from the yaw, pitch, and roll values.
 	MatrixRotationYawPitchRoll(&rotationMatrix, yaw, pitch, roll);
 

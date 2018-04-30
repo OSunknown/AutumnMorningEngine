@@ -38,7 +38,7 @@ void ColorShaderClass::Shutdown()
 	return;
 }
 
-bool ColorShaderClass::Render(ID3D11DeviceContext * deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, D3DXMATRIX projctionMatrix)
+bool ColorShaderClass::Render(ID3D11DeviceContext * deviceContext, int indexCount, Matrix4 worldMatrix, Matrix4 viewMatrix, Matrix4 projctionMatrix)
 {
 	bool result;
 	//Set the shader parameters that is will use for rendering
@@ -237,7 +237,7 @@ void ColorShaderClass::OutputShaderErrorMessage(ID3D10Blob * errorMessage, HWND 
 	return;
 }
 
-bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext * deviceContext, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, D3DXMATRIX projectionMatrix)
+bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext * deviceContext, Matrix4 worldMatrix, Matrix4 viewMatrix, Matrix4 projectionMatrix)
 {
 	HRESULT result;
 	D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -245,9 +245,9 @@ bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext * deviceContext, 
 	unsigned int bufferNumber;
 
 	//Transpose the matrices to prepare them for the shader
-	D3DXMatrixTranspose(&worldMatrix, &worldMatrix);
-	D3DXMatrixTranspose(&viewMatrix, &viewMatrix);
-	D3DXMatrixTranspose(&projectionMatrix, &projectionMatrix);
+	MatrixTranspose(&worldMatrix, &worldMatrix);
+	MatrixTranspose(&viewMatrix, &viewMatrix);
+	MatrixTranspose(&projectionMatrix, &projectionMatrix);
 
 	//Lock the constant buffer so it can be written to
 	result = deviceContext->Map(m_matrixBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
