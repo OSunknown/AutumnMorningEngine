@@ -37,6 +37,9 @@
     <Filter Include="Math\private">
       <UniqueIdentifier>{47ce80e3-7edf-4481-8605-9dd5b6c4aa2f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NewFilter1">
+      <UniqueIdentifier>{b28b2d5c-8ea3-4568-a02a-7a3f04ea9038}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ApplicationAwake.cpp">

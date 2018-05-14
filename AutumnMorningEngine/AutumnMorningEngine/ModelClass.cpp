@@ -1,7 +1,6 @@
 #include "ModelClass.h"
 
 
-
 ModelClass::ModelClass()
 {
 	m_vertexBuffer = 0;
@@ -115,7 +114,6 @@ bool ModelClass::InitializeBuffers(ID3D11Device * device)
 		vertices[i].normal = Vector3(m_model[i].nx, m_model[i].ny, m_model[i].nz);
 
 		indices[i] = i;
-		Debug::Log(vertices[i].position);
 	}
 
 	////Load the vertex array with data

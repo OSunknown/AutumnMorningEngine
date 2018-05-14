@@ -3,7 +3,6 @@
 
 LightClass::LightClass()
 {
-	Debug::Log("LightClass Awake");
 	m_diffuseColor = Vector4::zero;
 	m_direction = Vector3::zero;
 }
