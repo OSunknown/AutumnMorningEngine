@@ -8,9 +8,11 @@
 #include "Cameraclass.h"
 #include "ModelClass.h"
 //#include "ColorShaderClass.h"
-//#include "TextureShaderClass.h"
+#include "TextureShaderClass.h"
 #include "LightClass.h"
 #include "LightShaderClass.h"
+
+#include "bitmapclass.h"
 
 #include"Debug.h"
 /////////////
@@ -40,8 +42,10 @@ private:
 	CameraClass * m_Camera;
 	ModelClass* m_Model;
 //	ColorShaderClass * m_ColorShader;
-//	TextureShaderClass* m_TextureShader;
+	TextureShaderClass* m_TextureShader;
 	LightShaderClass* m_LightShader;
 	LightClass* m_Light;
+
+	BitmapClass* m_Bitmap;
 };
 

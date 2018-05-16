@@ -2,8 +2,8 @@
 #include<D3D11.h>
 #pragma comment(lib,"D3D11.lib")
 #include <fstream>
-#include <fbxsdk.h>
-#pragma comment(lib,"libfbxsdk.lib")
+//#include <fbxsdk.h>
+//#pragma comment(lib,"libfbxsdk.lib")
 using namespace std;
 #include "Math.h"
 #include "textureClass.h"
