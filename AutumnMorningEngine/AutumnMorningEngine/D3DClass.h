@@ -2,6 +2,7 @@
 #include <DXGI.h>
 #include <D3Dcommon.h>
 #include <D3D11.h>
+//#include <D3DX10math.h>
 #include "Math.h"
 #pragma comment(lib,"DXGI.lib")
 #pragma comment(lib,"D3D11.lib")

@@ -135,6 +135,7 @@
     <ClCompile Include="Matrix4.cpp" />
     <ClCompile Include="ModelClass.cpp" />
     <ClCompile Include="ModelListClass.cpp" />
+    <ClCompile Include="MultiTextureShaderClass.cpp" />
     <ClCompile Include="PositionClass.cpp" />
     <ClCompile Include="SystemClass.cpp" />
     <ClCompile Include="TextClass.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="ModelClass.h" />
     <ClInclude Include="ModelListClass.h" />
+    <ClInclude Include="MultiTextureShaderClass.h" />
     <ClInclude Include="PositionClass.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SystemClass.h" />

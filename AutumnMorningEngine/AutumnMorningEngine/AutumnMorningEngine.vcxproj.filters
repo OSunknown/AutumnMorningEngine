@@ -123,6 +123,9 @@
     <ClCompile Include="TimerClass.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="MultiTextureShaderClass.cpp">
+      <Filter>Shader\private</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -214,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="TimerClass.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiTextureShaderClass.h">
+      <Filter>Shader\public</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
