@@ -11,7 +11,8 @@
 #include <Windows.h>
 #include "GraphicsClass.h"
 #include "InputClass.h"
-
+#include "TimerClass.h"
+#include "PositionClass.h"
 class SystemClass
 {
 public:
@@ -37,7 +38,8 @@ private:
 	HWND m_hWnd;
 	InputClass* m_Input;
 	GraphicsClass* m_Graphics;
-
+	TimerClass* m_Timer;
+	PositionClass* m_Position;
 };
 
 /////////////////////////
