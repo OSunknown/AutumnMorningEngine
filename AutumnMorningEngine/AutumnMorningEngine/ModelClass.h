@@ -2,8 +2,6 @@
 #include<D3D11.h>
 #pragma comment(lib,"D3D11.lib")
 #include <fstream>
-//#include <fbxsdk.h>
-//#pragma comment(lib,"libfbxsdk.lib")
 using namespace std;
 #include "Math.h"
 #include "textureClass.h"
@@ -13,19 +11,6 @@ using namespace std;
 class ModelClass
 {
 private:
-	//color
-	/*struct VertexType
-	{
-		D3DXVECTOR3 position;
-		D3DXVECTOR4 color;
-	};*/
-	//Texture
-	/*struct VertexType
-	{
-		Vector3 position;
-		Vector2 texture;
-	};
-*/
 	struct VertexType
 	{
 		Vector3 position;
@@ -44,7 +29,7 @@ public:
 	ModelClass(const ModelClass&);
 	~ModelClass();
 
-	bool Initialize(ID3D11Device*, char*, WCHAR*);
+	bool Initialize(ID3D11Device*, WCHAR*, char*);
 	void Shutdown();
 	void Render(ID3D11DeviceContext*);
 
