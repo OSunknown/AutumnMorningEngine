@@ -2,7 +2,7 @@
 #include <DXGI.h>
 #include <D3Dcommon.h>
 #include <D3D11.h>
-#include <D3DX10math.h>
+//#include <D3DX10math.h>
 #include "Math.h"
 #pragma comment(lib,"DXGI.lib")
 #pragma comment(lib,"D3D11.lib")
@@ -32,6 +32,9 @@ public:
 
 	void TurnZBufferOn();
 	void TurnZBufferOff();
+	//Font
+	void TurnOnAlphaBlending();
+	void TurnOffAlphaBlending();
 
 private:
 	bool m_vsync_enabled;
@@ -50,5 +53,8 @@ private:
 	Matrix4 m_orthoMatrix;
 
 	ID3D11DepthStencilState* m_depthDisabledStencilState;
+	//Font
+	ID3D11BlendState* m_alphaEnableBlendingState;
+	ID3D11BlendState* m_alphaDisableBlendingState;
 };
 

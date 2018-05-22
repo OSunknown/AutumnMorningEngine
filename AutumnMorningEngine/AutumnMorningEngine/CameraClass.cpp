@@ -52,8 +52,7 @@ Vector3 CameraClass::GetRotation()
 void CameraClass::Render()
 {
 	Vector3 up, position, lookAt;
-	float yaw, pitch, roll;
-	Matrix4 rotationMatrix;
+	float radians;
 
 
 	// Setup the vector that points upwards.
@@ -66,28 +65,15 @@ void CameraClass::Render()
 	position.y = m_positionY;
 	position.z = m_positionZ;
 
-	// Setup where the camera is looking by default.
-	lookAt.x = 0.0f;
-	lookAt.y = 0.0f;
-	lookAt.z = 1.0f;
-	
+	// Calculate the rotation in radians.
+	radians = m_rotationY * 0.0174532925f;
 
-	// Set the yaw (Y axis), pitch (X axis), and roll (Z axis) rotations in radians.
-	pitch = m_rotationX * radians;
-	yaw = m_rotationY * radians;
-	roll = m_rotationZ * radians;
+	// Setup where the camera is looking.
+	lookAt.x = sinf(radians) + m_positionX;
+	lookAt.y = m_positionY;
+	lookAt.z = cosf(radians) + m_positionZ;
 
-	// Create the rotation matrix from the yaw, pitch, and roll values.
-	MatrixRotationYawPitchRoll(&rotationMatrix, yaw, pitch, roll);
-
-	// Transform the lookAt and up vector by the rotation matrix so the view is correctly rotated at the origin.
-	Vec3TransformCoord(&lookAt, &lookAt, &rotationMatrix);
-	Vec3TransformCoord(&up, &up, &rotationMatrix);
-
-	// Translate the rotated camera position to the location of the viewer.
-	lookAt = position + lookAt;
-
-	// Finally create the view matrix from the three updated vectors.
+	// Create the view matrix from the three vectors.
 	MatrixLookAtLH(&m_viewMatrix, &position, &lookAt, &up);
 
 	return;
