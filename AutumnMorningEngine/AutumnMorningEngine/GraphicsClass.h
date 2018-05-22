@@ -7,12 +7,12 @@
 #include "D3DClass.h"
 #include "Cameraclass.h"
 #include "ModelClass.h"
-#include "TextClass.h"
+//#include "ColorShaderClass.h"
 #include "TextureShaderClass.h"
 #include "LightClass.h"
 #include "LightShaderClass.h"
-#include "ModelListClass.h"
-#include "FrustumClass.h"
+
+#include "bitmapclass.h"
 
 #include"Debug.h"
 /////////////
@@ -32,16 +32,20 @@ public:
 
 	bool Initialize(int, int, HWND);
 	void Shutdown();
-	bool Frame(float);
-	bool Render();
+	bool Frame();
+
+private:
+	bool Render(float);
+
 private:
 	D3DClass * m_D3D;
-	CameraClass* m_Camera;
-	TextClass* m_Text;
+	CameraClass * m_Camera;
 	ModelClass* m_Model;
+//	ColorShaderClass * m_ColorShader;
+	TextureShaderClass* m_TextureShader;
 	LightShaderClass* m_LightShader;
 	LightClass* m_Light;
-	ModelListClass* m_ModelList;
-	FrustumClass* m_Frustum;
+
+	BitmapClass* m_Bitmap;
 };
 

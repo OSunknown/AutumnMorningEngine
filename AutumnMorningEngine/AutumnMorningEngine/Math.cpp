@@ -88,7 +88,7 @@ Matrix4 * MatrixLookAtLH(Matrix4 * pOut, CONST Vector3 * pEye, CONST Vector3 * p
 
 	return pOut;
 }
-Matrix4 * MatrixPerspectiveFovLH(Matrix4 * pOut, CONST FLOAT fovy, FLOAT Aspect, FLOAT zn, FLOAT zf)
+Matrix4 * MatrixPerspectiveFovLH(Matrix4 * pOut, const FLOAT fovy, FLOAT Aspect, FLOAT zn, FLOAT zf)
 {
 	pOut->SetMatrixPerspectiveFovLH(fovy, Aspect, zn, zf);
 	return pOut;
@@ -101,52 +101,6 @@ Matrix4 * MatrixOrthoLH(Matrix4 * pOut, FLOAT w, FLOAT h, FLOAT zn, FLOAT zf)
 Matrix4 * MatrixIdentity(Matrix4 * pOut)
 {
 	pOut->SetIdentity();
-	return pOut;
-}
-Matrix4 * MatrixMultiply(Matrix4 * pOut, CONST Matrix4 * pM1, CONST Matrix4 * pM2)
-{
-	Matrix4 out, m1, m2;
-	m1 = pM1;
-	m2 = pM2;
-	out = m1 * m2;
-	pOut->_11 = out._11;
-	pOut->_12 = out._12;
-	pOut->_13 = out._13;
-	pOut->_14 = out._14;
-	pOut->_21 = out._21;
-	pOut->_22 = out._22;
-	pOut->_23 = out._23;
-	pOut->_24 = out._24;
-	pOut->_31 = out._31;
-	pOut->_32 = out._32;
-	pOut->_33 = out._33;
-	pOut->_34 = out._34;
-	pOut->_41 = out._41;
-	pOut->_42 = out._42;
-	pOut->_43 = out._43;
-	pOut->_44 = out._44;
-
-	return pOut;
-}
-
-Matrix4 * MatrixTranslation(Matrix4 * pOut, FLOAT x, FLOAT y, FLOAT z)
-{
-	pOut->SetIdentity();
-	pOut->_41 = x;
-	pOut->_42 = y;
-	pOut->_43 = z;
-	return pOut;
-}
-
-Plane * PlaneNormalize(Plane * pOut, CONST Plane * pP)
-{
-	float sum;
-	sum = pP->a + pP->b + pP->c + pP->d;
-	sum = 1 / sum;
-	pOut->a = pP->a * sum;
-	pOut->b = pP->b * sum;
-	pOut->c = pP->c * sum;
-	pOut->d = pP->d * sum;
 	return pOut;
 }
 Vector3* Vec3TransformCoord(Vector3 *pOut, CONST Vector3 *pV, CONST Matrix4 *pM)
@@ -167,11 +121,6 @@ float dot(Vector3 left, Vector3 right)
 {
 	float returnValue = left.x*right.x + left.y*right.y + left.z*right.z;
 	return returnValue;
-}
-
-FLOAT PlaneDotCoord(Plane * pP, Vector3 * pV)
-{
-	return (pP->a *pV->x) + (pP->b * pV->y) + (pP->c *pV->z) + pP->d; //d는 1을 곱해주기에 생략
 }
 
 

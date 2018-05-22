@@ -1,7 +1,7 @@
 #pragma once
 
 #include <d3d11.h>
-#include "Math.h"
+#include <d3dx10math.h>
 #include <d3dx11async.h>
 #include <fstream>
 #include "Debug.h"
@@ -25,9 +25,12 @@ private:
 
 	struct LightBufferType
 	{
+		Vector4 ambientColor;
 		Vector4  diffuseColor;
 		Vector3  lightDirection;
-		float padding;  // Added extra padding so structure is a multiple of 16 for CreateBuffer function requirements.
+		//float padding;  // Added extra padding so structure is a multiple of 16 for CreateBuffer function requirements.
+		float specularPower;
+		Vector4 specularColor;
 	};
 
 public:
@@ -37,14 +40,14 @@ public:
 
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
-	bool Render(ID3D11DeviceContext*, int, Matrix4, Matrix4, Matrix4, ID3D11ShaderResourceView*, Vector3, Vector4);
+	bool Render(ID3D11DeviceContext*, int, Matrix4, Matrix4, Matrix4, ID3D11ShaderResourceView*, Vector3, Vector4, Vector4 ,Vector3, Vector4, FLOAT);
 
 private:
 	bool InitializeShader(ID3D11Device*, HWND, WCHAR*, WCHAR*);
 	void ShutdownShader();
 	void OutputShaderErrorMessage(ID3D10Blob*, HWND, WCHAR*);
 
-	bool SetShaderParameters(ID3D11DeviceContext*, Matrix4, Matrix4, Matrix4, ID3D11ShaderResourceView*, Vector3, Vector4);
+	bool SetShaderParameters(ID3D11DeviceContext*, Matrix4, Matrix4, Matrix4, ID3D11ShaderResourceView*, Vector3, Vector4, Vector4, Vector3, Vector4, FLOAT);
 	void RenderShader(ID3D11DeviceContext*, int);
 
 private:
@@ -53,6 +56,8 @@ private:
 	ID3D11InputLayout* m_layout;
 	ID3D11SamplerState* m_sampleState;
 	ID3D11Buffer* m_matrixBuffer;
+
+	ID3D11Buffer* m_cameraBuffer;
 	ID3D11Buffer* m_lightBuffer;
 };
 
